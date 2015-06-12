@@ -1,0 +1,82 @@
+package heartratecalculator;
+import java.util.Scanner;
+/**
+ *
+ * @author VietTranQuocHoang
+ */
+public class HeartRates 
+{ 
+    private String firstName;
+    private String lastName;
+    private int yearofbirth;
+    private int dayofbirth;
+    private int monthofbirth;
+   
+    public HeartRates(String firstName, String lastName,int monthofbirth,int dayofbirth, int yearofbirth)    
+    { this.firstName= firstName;
+    this.lastName=lastName;
+    this.yearofbirth= yearofbirth;
+    this.dayofbirth=dayofbirth;
+    this.monthofbirth=monthofbirth;
+    } 
+    public String getfirstName()
+    {
+        return firstName;
+    }
+    public String getlastName()
+    {
+        return lastName;
+    }
+    public int getmonthofbirth()
+    {
+        return monthofbirth;
+    }
+    public int getdayofbirth()
+    {
+        return dayofbirth;
+    }
+    public int getyearofbirth()
+    {
+        return yearofbirth;
+    }
+    public int getage(int yearofbirth)
+    {
+       int age = 2015-yearofbirth; 
+       return age; 
+    }
+    public int maxheartrate(int age)
+    {
+        return (220-age);
+    }
+    public int lowertargetheartrate (int maxheartrate)
+    {
+     return (maxheartrate * 50/100);   
+    }
+     public int uppertargetheartrate (int maxheartrate)
+    {
+     return (maxheartrate * 85/100);   
+    }
+     
+public static void main(String[] args) 
+    {
+     Scanner input=new Scanner(System.in);
+     System.out.println("Please enter the patient's first name: ");
+     String firstName=input.nextLine();
+     System.out.println("Please enter the patient's last name: ");
+     String lastName=input.nextLine();
+     System.out.println("Please enter the patient's month of birth: ");
+     int monthofbirth=input.nextInt();
+     System.out.println("Please enter the patient's day of birth: ");
+     int dayofbirth=input.nextInt();
+     System.out.println("Please enter the patient's year of birth: ");
+     int yearofbirth=input.nextInt();
+     HeartRates patientInfo = new HeartRates(firstName,lastName,monthofbirth,dayofbirth,yearofbirth);
+     int age= patientInfo.getage(yearofbirth);
+     int maxheartrate=patientInfo.maxheartrate(age);
+     System.out.printf("Patient %s %s,DOB %d/%d/%d, age %d%n ",patientInfo.getfirstName(), patientInfo.getlastName(),patientInfo.getmonthofbirth(),patientInfo.getdayofbirth(),patientInfo.getyearofbirth(),age);
+    System.out.printf("Maximum heart rate is %d%n",maxheartrate);
+    System.out.printf("Target heart rate zone is %d-%d%n", patientInfo.lowertargetheartrate(maxheartrate),patientInfo.uppertargetheartrate(maxheartrate));
+    }
+    
+
+}
