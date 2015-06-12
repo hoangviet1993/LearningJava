@@ -1,0 +1,40 @@
+public class Marathon {
+
+    
+    private int indexnumber;
+    public Marathon(int indexnumber)
+        {this.indexnumber=indexnumber;
+        }
+    public int returnIndex(int[]times)
+    {int index=0;
+    for (int i=0;i<times.length;i++)
+        {
+        if(times[i]<265)
+            index=i;       
+        }
+    return index;
+    }
+    public int returnsecondlowest(int[]times)
+    {int index=0;
+        for (int i=0;i<times.length;i++)
+        {if(times[i]>243&&times[i]<273)
+            index=i;
+        }
+    return index;
+    }
+    
+    public static void main(String[] args) 
+    {
+        String[]names={
+            "Elena","Thomas","Hamilton","Suzie","Phil","Matt","Alex",
+            "Emma","John","James","Jane","Emily","Daniel","Neda","Aaron","Kate"       
+        };
+        int[]times={
+          341,273,278,329,445,402,388,275,243,334,412,393,299,343,317,265  
+        };
+        int index =0;
+        Marathon indexnumber = new Marathon(index);
+        System.out.printf("%s runs the fastest with the time:%d minutes%n",names[indexnumber.returnIndex(times)],times[indexnumber.returnIndex(times)]);
+        System.out.printf("%s is the 2nd fastest runner with the time:%d minutes%n",names[indexnumber.returnsecondlowest(times)],times[indexnumber.returnsecondlowest(times)]);
+    }
+}
