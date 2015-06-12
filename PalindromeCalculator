@@ -1,0 +1,103 @@
+package palindrome.calculator;
+import java.util.Scanner;
+/**
+ *
+ * @author VietTranQuocHoang
+ * https://www.dropbox.com/s/ycbajqsu9fr64mr/Palindrome%20programming%20assignment.pdf?dl=0
+ */
+public class Palindrome
+{   private static String base10number;
+    private static String stringnumber="s";
+    private static int intnumber;
+    private static int originalbase;
+    private static int newbase;
+    private static int result;
+    public Palindrome(int number)
+    {
+        this.intnumber= number;
+       
+
+    }
+    
+    public void baseConverter(String number,int originalbase, int newbase)
+    {
+        base10number= Integer.toString(Integer.parseInt(number,originalbase),newbase);
+    }
+    
+    public static int reversenumber( int number)
+    {
+        int result =0;
+        int rem;
+        while (number > 0)
+        {
+            rem = number%10;
+            number=number/10;
+            result= result *10+rem;
+        }
+        return result;
+    }
+    
+    public static boolean isPalindrome(int number)
+    {
+        int palindrome= number;
+        int reverse =0;
+        while(palindrome != 0)
+        {
+            int remainder = palindrome %10;
+            reverse = reverse*10+ remainder;
+            palindrome = palindrome /10;
+                    
+        }
+        if (number == reverse)
+            return true;
+        else
+            return false;
+    }
+    
+    public static int asBase(int num, int base)
+    {
+        int ret =0;
+        while(num>0)
+        {   ret= ret*10+num%base;
+            num=num/base;
+        }
+        return ret;
+    }
+    
+    public static void main(String[] args) 
+    {   Scanner input = new Scanner(System.in);      
+        int count =0;
+        
+        Palindrome number1;
+        number1 = new Palindrome( intnumber);                     
+        String num1 = "233332";
+        
+        
+        System.out.println(+Integer.parseInt(num1, 4)+" this is num1");
+        System.out.println("Please enter the number(string format): ");
+       intnumber= input.nextInt();
+        
+        
+        System.out.println(Integer.toString(intnumber,4)+" this is intnumber in base 3");
+        
+        
+        
+        System.out.println("This is intnumber "+intnumber); 
+        if( isPalindrome(intnumber))
+            {System.out.println("Number : " + intnumber + " is a palindrome");
+            }
+            else
+                {while (!isPalindrome(intnumber) ) 
+                    {int reversenumber =number1.reversenumber(intnumber);
+                    intnumber=intnumber+reversenumber;
+                    count++;
+                    if(count==10)
+                    break;      
+                    }
+                 System.out.println("Number : " + intnumber + " is a palindrome");
+                }
+           
+            
+   }  
+    
+}
