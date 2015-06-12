@@ -1,0 +1,44 @@
+package account;
+import java.util.Scanner;
+/**
+ *
+ * @author VietTranQuocHoang
+ */
+public class Account 
+{
+    private String name;
+    private double currentbalance;
+    public Account(String name, double currentbalance)
+    {
+        this.name=name;
+        this.currentbalance=currentbalance;
+    }
+    public String getname()
+    {
+        return name;
+    }
+    public double getbalance()
+    {
+        return currentbalance;
+    }
+    public double deposit(double depositAmount)
+    {
+        currentbalance = currentbalance+depositAmount;
+        return currentbalance;
+    }
+   
+    
+    public static void main(String[] args) 
+    {  
+        Scanner input = new Scanner(System.in);
+        System.out.println(" Please enter account name: ");
+        String theName= input.nextLine();
+        System.out.println(" Please enter current account balance: ");
+        double currentbalance=input.nextDouble();
+        Account myAccount = new Account(theName,currentbalance);
+        System.out.printf(" This is the account of: %s%n The current balance is $%.2f%n",myAccount.getname(),myAccount.getbalance());
+        System.out.println(" Please enter the amount of deposit you want to make:");
+       double depositAmount = input.nextDouble();
+       System.out.printf(" $%.2f has been added to %s account.%n The current balance is $%.2f%n",depositAmount,myAccount.getname(),myAccount.deposit(depositAmount));
+    }
+}
