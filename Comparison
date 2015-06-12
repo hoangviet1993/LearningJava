@@ -1,0 +1,30 @@
+package comparison;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author VietTranQuocHoang
+ */
+public class Comparison {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+       Scanner userinput = new Scanner(System.in);
+    int number1;
+    int number2;
+    System.out.print("Enter first integer: ");
+    number1 = userinput.nextInt();
+    System.out.print("Enter second integer: ");
+    number2= userinput.nextInt();
+    if( number1==number2)
+        System.out.printf("%d is equal to %d%n",number1, number2);
+    if (number1 != number2)
+        System.out.printf("%d is not equal to %d%n", number1, number2);
+    if (number1< number2)
+        System.out.printf("%d is smaller than %d%n", number1,number2);
+    }
+    
+}
