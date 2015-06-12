@@ -1,0 +1,52 @@
+package book;
+
+/**
+ *
+ * @author VietTranQuocHoang
+ */
+public class Book 
+{   static String[] title= new String[4];
+    boolean borrowed;
+    static int i =0;
+    public Book(String bookTitle)
+    {
+    title[i]= bookTitle;
+    i++;}
+   
+    public void borrowed()
+    {
+        borrowed=true;
+    }
+    
+    public void returned()
+    {
+        borrowed=false;
+    }
+    
+    public boolean isBorrowed()
+    {
+       return borrowed;
+    }
+    
+    public void getTitle()
+    {for (int i=0;i<title.length;i++)
+       System.out.println(title[i]);
+    }
+    
+    public static void main(String[] arguments)
+    {
+        Book example = new Book("The Da Vinci Code");
+        
+          example = new Book("Le Petit Prince");
+          example = new Book("A Tale of Two Cities"); 
+          example = new Book("Lord of the Rings");
+        
+        example.getTitle();
+        System.out.println("Borrowded?(should be false): "+ example.isBorrowed());
+        example.borrowed();
+        System.out.println("Borrowed? (should be true): "+ example.isBorrowed());
+        example.returned();
+        System.out.println("Borrowed? (should be false): "+ example.isBorrowed());
+        
+    }
+}
